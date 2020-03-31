@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import './Models/continent.dart';
+import './models/continent.dart';
 
 const getContinents = const [
-  Continent(id: "0", name: "Asia", color: Colors.lightGreen),
+  Continent(id: "0", name: "Asia", color: Colors.purpleAccent),
   Continent(id: "1", name: "Africa", color: Colors.yellow),
   Continent(id: "2", name: "Antarctica", color: Colors.indigo),
   Continent(id: "3", name: "Australia", color: Colors.lightGreenAccent),

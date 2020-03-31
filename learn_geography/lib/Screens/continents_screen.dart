@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../Widgets/continentListLayout.dart';
+import '../widgets/continentListLayout.dart';
 import '../const_data.dart';
 
 class ContinentSreen extends StatelessWidget {
@@ -12,6 +12,7 @@ class ContinentSreen extends StatelessWidget {
         title: const Text("Continents"),
       ),
       body: GridView(
+        padding: const EdgeInsets.all(20),
         children: getContinents.map((c) {
           return ContinentListLayout(c.name, c.color);
         }).toList(),

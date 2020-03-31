@@ -10,11 +10,13 @@ class ContinentListLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(15),
-      child: Text(name),
-      margin: EdgeInsets.all(10),
+      child: Text(
+        name,
+        style: Theme.of(context).textTheme.title,
+      ),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [color.withOpacity(0.7), color],
+          colors: [color , color.withOpacity(0.5),],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
