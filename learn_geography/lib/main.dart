@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'screens/continents_screen.dart';
+import './screens/country_screen.dart';
+import './screens/continents_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,7 +28,11 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.bold
             )),
       ),
-      home: ContinentSreen(),
+      initialRoute: "/",
+      routes: {
+        "/" : (ctx) => ContinentSreen(),
+        CountryScreen.rountName : (ctx) => CountryScreen(),
+      },
     );
   }
 }

@@ -1,26 +1,45 @@
 import 'package:flutter/material.dart';
+import '../screens/country_screen.dart';
 
 class ContinentListLayout extends StatelessWidget {
+  final String id;
   final String name;
   final Color color;
 
-  ContinentListLayout(this.name, this.color);
+  void selectedContinent(BuildContext ctx) {
+    Navigator.of(ctx).pushNamed(
+      CountryScreen.rountName,
+      arguments: {"id": id, "title": name},
+    );
+  }
+
+  ContinentListLayout(this.id, this.name, this.color);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(15),
-      child: Text(
-        name,
-        style: Theme.of(context).textTheme.title,
-      ),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [color , color.withOpacity(0.5),],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
+    return InkWell(
+      onTap: () {
+        selectedContinent(context);
+      },
+      borderRadius: BorderRadius.circular(15),
+      splashColor: color,
+      child: Container(
+        padding: EdgeInsets.all(15),
+        child: Text(
+          name,
+          style: Theme.of(context).textTheme.title,
         ),
-        borderRadius: BorderRadius.circular(15),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              color,
+              color.withOpacity(0.4),
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(15),
+        ),
       ),
     );
   }
