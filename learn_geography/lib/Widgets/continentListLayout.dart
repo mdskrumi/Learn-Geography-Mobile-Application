@@ -5,15 +5,16 @@ class ContinentListLayout extends StatelessWidget {
   final String id;
   final String name;
   final Color color;
+  final String image;
 
   void selectedContinent(BuildContext ctx) {
     Navigator.of(ctx).pushNamed(
       CountryScreen.rountName,
-      arguments: {"id": id, "title": name},
+      arguments: {"id": id, "title": name , "image" : image},
     );
   }
 
-  ContinentListLayout(this.id, this.name, this.color);
+  ContinentListLayout(this.id, this.name, this.color, this.image);
 
   @override
   Widget build(BuildContext context) {
