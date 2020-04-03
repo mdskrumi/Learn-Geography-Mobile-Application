@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_geography/screens/geography_screen.dart';
 
 import './screens/country_screen.dart';
 import './screens/continents_screen.dart';
@@ -23,15 +24,15 @@ class MyApp extends StatelessWidget {
               color: Color.fromRGBO(20, 51, 51, 1),
             ),
             title: TextStyle(
-              fontFamily: 'RobotoCondensed',
-              fontSize: 24,
-              fontWeight: FontWeight.bold
-            )),
+                fontFamily: 'RobotoCondensed',
+                fontSize: 24,
+                fontWeight: FontWeight.bold)),
       ),
       initialRoute: "/",
       routes: {
-        "/" : (ctx) => ContinentSreen(),
-        CountryScreen.rountName : (ctx) => CountryScreen(),
+        "/": (ctx) => ContinentSreen(),
+        CountryScreen.rountName: (ctx) => CountryScreen(),
+        GeographyScreen.rountName: (ctx) => GeographyScreen(),
       },
     );
   }

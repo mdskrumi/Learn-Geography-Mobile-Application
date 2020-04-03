@@ -14,7 +14,7 @@ class ContinentSreen extends StatelessWidget {
       body: GridView(
         padding: const EdgeInsets.all(20),
         children: getContinents.map((c) {
-          return ContinentListLayout(c.id,c.name, c.color, c.image);
+          return ContinentListLayout(c.id, c.name, c.color, c.image);
         }).toList(),
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: mediaQuery.size.width / 1.6,

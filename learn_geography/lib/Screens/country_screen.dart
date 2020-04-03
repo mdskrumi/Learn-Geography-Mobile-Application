@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:learn_geography/widgets/country_list_layout.dart';
 import '../models/country.dart';
 import '../const_data.dart';
 
@@ -8,16 +10,15 @@ import 'dart:io';
 class CountryScreen extends StatelessWidget {
   static const rountName = "/country-screen";
 
-  String getData(String path) {
-    String data;
-    new File(path).readAsString().then((String contents) {
-      data = contents;
-    });
-    return data;
+  Future<String> readFileAsync(String filePath) async {
+    String str = await rootBundle.loadString(filePath);
+    return str;
   }
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+
     final routeArgs =
         ModalRoute.of(context).settings.arguments as Map<String, String>;
 
@@ -30,36 +31,46 @@ class CountryScreen extends StatelessWidget {
       return (c.continentId == id);
     }).toList();
 
+    //String appBarTitle = title.replaceAll(new RegExp(r'_'), " ");
+
+    final appBar = AppBar(
+      title: Text(title),
+    );
+    final appBarHeight = appBar.preferredSize.height + mediaQuery.padding.top;
+
     return Scaffold(
-        appBar: AppBar(
-          title: Text(title),
-        ),
+        appBar: appBar,
         body: SingleChildScrollView(
-          child: Container(
-            width: double.infinity,
-            child: Column(
-                children: countries.map((c) {
-              return Container(
-                padding: EdgeInsets.all(15),
-                margin: EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      color,
-                      color.withOpacity(0.4),
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  borderRadius: BorderRadius.circular(15),
-                ),
+          child: Column(
+            children: <Widget>[
+              Container(
+                height: (mediaQuery.size.height - appBarHeight) * 0.3,
                 width: double.infinity,
-                child: Text(
-                  c.name,
-                  style: Theme.of(context).textTheme.title,
+                child: Image.asset(
+                  image,
+                  fit: BoxFit.fill,
                 ),
-              );
-            }).toList()),
+              ),
+              Divider(
+                height: (mediaQuery.size.height - appBarHeight) * 0.02,
+              ),
+              Container(
+                height: (mediaQuery.size.height - appBarHeight) * 0.68,
+                width: double.infinity,
+                child: GridView(
+                  children: countries
+                      .map((c) => CountryListLayout(country: c))
+                      .toList(),
+                  padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: mediaQuery.size.width / 1.8,
+                    childAspectRatio: 3 / 2,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                  ),
+                ),
+              )
+            ],
           ),
         ));
   }
