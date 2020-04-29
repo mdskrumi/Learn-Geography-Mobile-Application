@@ -10,23 +10,29 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Learn Geography',
       theme: ThemeData(
         primarySwatch: Colors.pink,
         accentColor: Colors.lightBlue,
         canvasColor: Colors.white,
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
-            body1: TextStyle(
-              color: Color.fromRGBO(20, 51, 51, 1),
+              body1: TextStyle(
+                color: Color.fromRGBO(20, 51, 51, 1),
+              ),
+              body2: TextStyle(
+                color: Color.fromRGBO(20, 51, 51, 1),
+              ),
+              title: TextStyle(
+                  fontFamily: 'RobotoCondensed',
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
+              subtitle: TextStyle(
+                  fontFamily: 'RobotoCondensed-Light',
+                  fontSize: 24,
+                  ),
             ),
-            body2: TextStyle(
-              color: Color.fromRGBO(20, 51, 51, 1),
-            ),
-            title: TextStyle(
-                fontFamily: 'RobotoCondensed',
-                fontSize: 24,
-                fontWeight: FontWeight.bold)),
       ),
       initialRoute: "/",
       routes: {

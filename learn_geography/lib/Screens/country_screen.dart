@@ -5,7 +5,6 @@ import '../models/country.dart';
 import '../const_data.dart';
 
 import 'dart:async';
-import 'dart:io';
 
 class CountryScreen extends StatelessWidget {
   static const rountName = "/country-screen";
@@ -57,10 +56,11 @@ class CountryScreen extends StatelessWidget {
               Container(
                 height: (mediaQuery.size.height - appBarHeight) * 0.68,
                 width: double.infinity,
-                child: GridView(
-                  children: countries
-                      .map((c) => CountryListLayout(country: c))
-                      .toList(),
+                child: GridView.builder(
+                  itemCount: countries.length,
+                  itemBuilder: (ctx, i) => CountryListLayout(
+                    country: countries[i],
+                  ),
                   padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: mediaQuery.size.width / 1.8,

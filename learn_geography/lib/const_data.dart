@@ -7,43 +7,43 @@ const getContinents = const [
     id: "0",
     name: "Asia",
     color: Colors.purpleAccent,
-    image: "assets/images/asia.png",
+    image: "assets/images/continent/asia.png",
   ),
   Continent(
     id: "1",
     name: "Africa",
     color: Colors.redAccent,
-    image: "assets/images/africa.png",
+    image: "assets/images/continent/africa.png",
   ),
-  Continent(
+  /*Continent(
     id: "2",
     name: "Antarctica",
     color: Colors.indigo,
     image: "assets/images/antarctica.png",
-  ),
+  ),*/
   Continent(
     id: "3",
     name: "Australia",
     color: Colors.deepOrange,
-    image: "assets/images/australia.png",
+    image: "assets/images/continent/australia.png",
   ),
   Continent(
     id: "4",
     name: "Europe",
     color: Colors.teal,
-    image: "assets/images/europe.png",
+    image: "assets/images/continent/europe.png",
   ),
   Continent(
     id: "5",
     name: "North America",
     color: Colors.brown,
-    image: "assets/images/north_america.png",
+    image: "assets/images/continent/north_america.png",
   ),
   Continent(
     id: "6",
     name: "South America",
     color: Colors.green,
-    image: "assets/images/south_america.png",
+    image: "assets/images/continent/south_america.png",
   ),
 ];
 

@@ -23,7 +23,7 @@ class CountryListLayout extends StatelessWidget {
       splashColor: Colors.pink,
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
         child: LayoutBuilder(
           builder: (ctx, constraints) {
             return Column(

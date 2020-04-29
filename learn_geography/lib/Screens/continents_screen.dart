@@ -11,11 +11,15 @@ class ContinentSreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Continents"),
       ),
-      body: GridView(
+      body: GridView.builder(
+        itemCount: getContinents.length,
+        itemBuilder: (ctx, i) => ContinentListLayout(
+          getContinents[i].id,
+          getContinents[i].name,
+          getContinents[i].color,
+          getContinents[i].image,
+        ),
         padding: const EdgeInsets.all(20),
-        children: getContinents.map((c) {
-          return ContinentListLayout(c.id, c.name, c.color, c.image);
-        }).toList(),
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: mediaQuery.size.width / 1.6,
           childAspectRatio: 3 / 2,

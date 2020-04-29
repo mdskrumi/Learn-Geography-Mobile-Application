@@ -25,7 +25,7 @@ class ContinentListLayout extends StatelessWidget {
       borderRadius: BorderRadius.circular(15),
       splashColor: color,
       child: Container(
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         child: Text(
           name,
           style: Theme.of(context).textTheme.title,
